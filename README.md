@@ -1,4 +1,4 @@
-## Note
+# Note
 
 Boilerplate using Parcel + PugJS + SASS + Typescript
 
@@ -10,8 +10,8 @@ or
 ## To Run:
 ```yarn dev```
 
-# You can also open HTML file directly in /build/index.html
+## You can also open HTML file directly in /build/index.html
 
-## Screenshot
+# Screenshot
 
 ![Screenshot](screenshot.png)
