@@ -1,0 +1,56 @@
+@use 'settings/color' as color;
+@use 'settings/font-family' as ff;
+@use 'settings/font-weight' as fw;
+@use 'tools/mixin' as mixin;
+@use 'tools/media-queries' as mq;
+
+.about {
+
+  &__text {
+    gap: 1.2em;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include mq.mx1024 {
+      text-align: center;
+      align-items: center;
+      max-width: 100%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    gap: 10%;
+    @include mq.mx1024 {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__img-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    @include mq.mx1024 {
+      width: 100%;
+    }
+
+    img {
+      aspect-ratio: 5/3;
+      height: 200px;
+      @include mq.mx1024 {
+        height: 25vw;
+      }
+
+      &:first-child {
+        padding-right: 15%;
+      }
+
+      &:last-child {
+        padding-left: 15%;
+      }
+    }
+  }
+}

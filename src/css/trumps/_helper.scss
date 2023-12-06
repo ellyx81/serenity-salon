@@ -1,0 +1,63 @@
+@use 'settings/color' as color;
+@use 'tools/media-queries' as mq;
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sp {
+  display: none;
+  @include mq.sp {
+    display: block;
+  }
+}
+
+.sp-flex {
+  display: none;
+  @include mq.sp {
+    display: flex;
+  }
+}
+
+.tablet {
+  display: none;
+  @include mq.mx1024 {
+    display: block;
+  }
+}
+
+.tablet-flex {
+  display: none;
+  @include mq.mx1024 {
+    display: flex;
+  }
+}
+
+.pc {
+  display: block;
+  @include mq.sp {
+    display: none;
+  }
+}
+
+.pc-flex {
+  display: flex;
+  @include mq.mx1024 {
+    display: none;
+  }
+}
+
+.pc-only {
+  display: flex;
+  @include mq.mx1024 {
+    display: none;
+  }
+}

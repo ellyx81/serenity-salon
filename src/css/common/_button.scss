@@ -1,0 +1,61 @@
+@use 'tools/mixin' as mixin;
+@use 'settings/color' as color;
+@use 'settings/font-weight' as fw;
+
+.button {
+  height: 4em;
+  width: fit-content;
+  padding: 0 2em;
+  background-color: color.$primary;
+  border-radius: .5em;
+  @include mixin.center;
+  flex-direction: row;
+  @include mixin.setrem($pc: 1.6rem, $tablet: 1.4rem, $sp: 1.2rem);
+
+  &:after {
+    content: '';
+    width: 1em;
+    height: 1em;
+    mask: url("../img/icons/arrow-right.svg") center / contain no-repeat;
+    background-color: color.$white;
+    margin-left: .8em;
+    transition: transform 0.3s;
+  }
+
+  &:hover {
+
+    &::after {
+      transform: translateX(.5em);
+    }
+  }
+
+  span {
+    font-size: 1em;
+    font-weight: fw.$medium;
+    color: color.$white;
+  }
+
+  &--secondary {
+    height: 3em;
+    background: transparent;
+    border: 2px solid color.$primary;
+
+    &::after {
+      background-color: color.$primary;
+    }
+
+    span {
+      color: color.$primary;
+    }
+  }
+
+  &--white {
+    height: 2.5em;
+    background: transparent;
+    border: none;
+
+    span {
+      color: color.$white;
+    }
+  }
+}

@@ -1,0 +1,163 @@
+@use 'settings/color' as color;
+@use 'settings/font-family' as ff;
+@use 'settings/font-weight' as fw;
+@use 'tools/mixin' as mixin;
+@use 'tools/media-queries' as mq;
+
+.contact {
+
+  &__content {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    @include mq.sp {
+      flex-direction: column;
+      gap: 2em;
+      max-width: 600px;
+    }
+  }
+
+  &__container {
+    width: 50%;
+    @include mq.sp {
+      width: 100%;
+    }
+  }
+
+  &__heading {
+    @include mq.sp {
+      text-align: center;
+    }
+  }
+
+  &__info-container {
+    margin-top: 2em;
+  }
+
+  &__info-wrap {
+    margin-top: .5em;
+  }
+
+  &__info-title {
+    font-weight: fw.$bold;
+    font-size:  1.2em;
+    color: color.$gray;
+  }
+
+  &__info {
+    margin-left: 1em;
+  }
+
+  &__socials {
+    margin-top: 2.5em;
+    display: flex;
+    gap: 1.5em;
+    @include mq.sp {
+      justify-content: center;
+    }
+  }
+
+  &__social-icon {
+    width: 2.5em;
+    height: 2.5em;
+    background-color: color.$primary;
+    transition: .3s;
+
+    &:hover {
+      transform: translateY(-0.5em);
+    }
+
+    &:first-child {
+      mask: url("../img/icons/facebook.svg") center / contain no-repeat;
+    }
+
+    &:nth-child(2) {
+      mask: url("../img/icons/instagram.svg") center / contain no-repeat;
+    }
+
+    &:nth-child(3) {
+      mask: url("../img/icons/tiktok.svg") center / contain no-repeat;
+    }
+
+    &:nth-child(4) {
+      mask: url("../img/icons/twitter.svg") center / contain no-repeat;
+    }
+
+    &:last-child {
+      mask: url("../img/icons/youtube.svg") center / contain no-repeat;
+    }
+  }
+
+  &__form-container {
+    width: 50%;
+    @include mq.sp {
+      width: 100%;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    padding: 2.5em 3em;
+    background-color: color.$primary;
+    overflow: hidden;
+
+    input,
+    textarea,
+    button {
+      border: none;
+      width: 100%;
+      font: inherit;
+      font-size: 1em;
+      font-weight: fw.$bold;
+      line-height: inherit;
+      padding: .6em 2em;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: color.$white;
+        opacity: 1;
+        font-weight: fw.$light;
+      }
+    }
+
+    input,
+    textarea {
+      color: color.$white;
+      background-color: transparent;
+      border-bottom: 1px solid color.$light-pink;
+      position: relative;
+      z-index: 1;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 2em;
+      cursor: pointer;
+      color: color.$gray;
+    }
+  }
+
+  &__input-wrap {
+    position: relative;
+    overflow: hidden;
+    margin-top: 1em;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 97%;
+      background-color: color.$white;
+      opacity: .2;
+      pointer-events: none;
+    }
+  }
+}

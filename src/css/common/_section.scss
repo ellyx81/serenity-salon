@@ -1,0 +1,16 @@
+@use 'settings/color' as color;
+@use 'tools/mixin' as mixin;
+@use 'tools/media-queries' as mq;
+
+.section {
+  padding: 7em 0;
+  @include mixin.center;
+  @include mixin.setrem($pc: 1.6rem, $tablet: 1.4rem, $sp: 1.2rem);
+  @include mq.mx1024 {
+    padding: 5em 0;
+  }
+
+  &__content {
+    @include mixin.max-width;
+  }
+}

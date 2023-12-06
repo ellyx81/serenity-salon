@@ -1,0 +1,8 @@
+@use 'settings/color' as color;
+@use 'settings/font-family' as ff;
+@use 'settings/font-weight' as fw;
+@use 'tools/mixin' as mixin;
+
+.heading {
+  font: fw.$medium 3em ff.$heading;
+}
