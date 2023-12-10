@@ -10,6 +10,10 @@ or
 ## To Run:
 ```yarn dev```
 
+## Link:
+https://ellyx81.github.io/serenity-salon/
+
+
 # Screenshot
 
 ![Screenshot](screenshot.png)
