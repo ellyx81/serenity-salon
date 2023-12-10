@@ -10,8 +10,6 @@ or
 ## To Run:
 ```yarn dev```
 
-## You can also open HTML file directly in /build/index.html
-
 # Screenshot
 
 ![Screenshot](screenshot.png)
