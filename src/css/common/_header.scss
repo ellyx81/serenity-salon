@@ -8,6 +8,7 @@
 
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   font-size: 1em;
   color: color.$text-dark;
@@ -46,13 +47,55 @@
     #{$p}__logo {
       padding: 15px;
       @include mq.mx1024 {
-        padding: 8px;
+        padding: 5px 8px;
       }
       @include mq.sp {
-        padding: 6px;
+        padding: 5px 10px;
       }
     }
-    
+
+    &.expand {
+      
+      #{$p}__toggler {
+
+        &::before {
+          transform: translate(-20px, 10.5px) rotate(-40deg);
+        }
+
+        &::after {
+          transform: translate(-20px, -10.5px) rotate(40deg);
+        }
+      }
+    }
+  }
+
+  &.expand {
+
+    #{$p}__nav {
+      right: 0;
+      box-shadow: -99999px 0 0 99999px rgb(65, 65, 65, 0.5);
+    }
+      
+    #{$p}__toggler {
+
+      &::before {
+        transform: translate(-22px, 14.5px) rotate(-40deg);
+        @include mq.sp {
+          transform: translate(-20px, 12.5px) rotate(-40deg);
+        }
+      }
+
+      &::after {
+        transform: translate(-22px, -14.5px) rotate(40deg);
+        @include mq.sp {
+          transform: translate(-20px, -12.5px) rotate(40deg);
+        }
+      }
+
+      span {
+        opacity: 0;
+      }
+    }
   }
 
   &__contents {
@@ -62,10 +105,12 @@
     justify-content: space-between;
     margin: 0 auto;
     width: 100%;
-    max-width: 1080px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
     transition: 0.5s;
+    position: relative;
     @include mq.mx1024 {
       height: 80px;
+      justify-content: flex-start;
     }
     @include mq.sp {
       height: 60px;
@@ -76,8 +121,12 @@
     height: 100%;
     padding: 20px;
     @include mq.mx1024 {
-      padding: 10px;
-      margin-left: 10px;
+      padding: 8px 10px;
+      width: 90px;
+    }
+    @include mq.sp {
+      padding: 5px 10px;
+      width: 70px;
     }
   }
 
@@ -89,14 +138,15 @@
     @include mq.mx1024 {
       position: absolute;
       top: 0;
-     // right: 0;
-      right: 100%;
+      right: -100%;
       height: 100vh;
-      width: 50%;
+      width: 70%;
+      padding: 0 50px;
       background-color: color.$white;
+      transition: .6s cubic-bezier(.075,.82,.165,1);
     }
     @include mq.sp {
-      width: 70%;
+      width: 100%;
     }
   }
 
@@ -122,6 +172,12 @@
       height: auto;
       padding: 2em;
       @include mixin.center;
+    }
+
+    &:not(:last-child) {
+      @include mq.mx1024 {
+        border-bottom: 1px solid color.$light-gray;
+      }
     }
 
     &--dropdown {
@@ -150,7 +206,6 @@
 
   &__submenu {
     position: absolute;
-   // top: -110%;
     top: 100%;
     left: 50%;
     height: 0;
@@ -159,8 +214,9 @@
     display: flex;
     flex-direction: column;
     background-color: color.$white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
     transition: .3s;
-    z-index: -1;
+    z-index: 1;
     @include mq.mx1024 {
       position: relative;
       top: 0;
@@ -178,6 +234,49 @@
         background-color: color.$light-gray;
       } 
 
+    }
+  }
+
+  &__toggler {
+    position: absolute;
+    right: 1.5em;
+    top: 28%;
+    width: 3.2em;
+    height: 40%;
+    z-index: 99999;
+    transition: 0.4s;
+    @include mq.sp {
+      width: 42px;
+      height: 45%;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: color.$text;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: top 0.3s 0.3s, transform 0.3s;
+    }
+
+    &::after {
+      top: calc(100% - 3px);
+    }
+
+    span {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: color.$black;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.3s;
     }
   }
 }

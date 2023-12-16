@@ -1,6 +1,7 @@
 extends includes/layout.pug
+include includes/mixins.pug
 block content
-  
+
   section.section.banner 
     .banner__content
       .banner__text
@@ -8,21 +9,17 @@ block content
         p.banner__text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies urna ac velit molestie ullamcorper. Sed varius nec purus in ultrices.
         a.button(href="")
           span Book an appointment
-      .splide.banner__slider.js-slider 
+      .splide.banner__slider
         .splide__track
           ul.splide__list
             li.splide__slide
-              img.cover(src="/img/banner/banner-1.jpg", alt="")
+              +picture("banner/banner-1", "jpg", "Serenity Salon facility").cover
             li.splide__slide
-              img.cover(src="/img/banner/banner-2.jpg", alt="")
+              +picture("banner/banner-2", "jpg", "Serenity Salon facility").cover
             li.splide__slide
-              img.cover(src="/img/banner/banner-3.jpg", alt="")
+              +picture("banner/banner-3", "jpg", "Serenity Salon facility").cover
             li.splide__slide
-              img.cover(src="/img/banner/banner-4.jpg", alt="")
-            li.splide__slide
-              img.cover(src="/img/banner/banner-5.jpg", alt="")
-            li.splide__slide
-              img.cover(src="/img/banner/banner-6.jpg", alt="")
+              +picture("banner/banner-4", "jpg", "Serenity Salon facility").cover
 
   section.section.about#about
     .about__content.section__content
@@ -30,90 +27,125 @@ block content
         img.cover(src="img/about/about-1.jpg", alt="")
         img.cover(src="img/about/about-2.jpg", alt="")
       .about__text
-        h2.heading Who we are?
-        p.about__text In consequat, nisl quis dignissim auctor, arcu massa auctor purus, ut lobortis lectus erat et augue. Etiam eget maximus elit. Quisque cursus sagittis metus, nec placerat risus ultrices sit amet.
+        h2.heading About Us
+        p.about__text In consequat, nisl quis dignissim auctor, arcu massa auctor purus, ut lobortis lectus erat et augue. Etiam eget maximus elit. Quisque cursus sagittis metus, nec placerat risus ultrices sit amet. Ut sollicitudin, libero ut convallis sagittis, diam nulla tempus enim, feugiat condimentum nunc sem sit amet ante.
         a.button.button--secondary(href="")
           span Find out more
 
   section.section.services#services
     .services__content.section__content
-      h2.heading Our Services
+      .services__text
+        h2.heading Services We Offer
+        p Indulge in a world of beauty and relaxation with our exquisite services.
       .services__container(href="")
-        a(href="").services__item
-          img.cover(src="img/services/makeup.jpg", alt="")
-          span.services__heading Makeup
-          p Phasellus vel neque iaculis, interdum arcu vitae, sollicitudin nisi. Nulla id interdum elit, sit amet ultricies sem.
-          .button.button--white.services__btn
-            span Learn More
-        a(href="").services__item
-          img.cover(src="img/services/hair.jpg", alt="")
-          span.services__heading Hair Services 
-          p Phasellus vel neque iaculis, interdum arcu vitae, sollicitudin nisi. Nulla id interdum elit, sit amet ultricies sem.
-          .button.button--white.services__btn
-            span Learn More
-        a(href="").services__item
-          img.cover(src="img/services/nail.jpg", alt="")
-          span.services__heading Nail Care
-          p Phasellus vel neque iaculis, interdum arcu vitae, sollicitudin nisi. Nulla id interdum elit, sit amet ultricies sem.
-          .button.button--white.services__btn
-            span Learn More
-        a(href="").services__item
-          img.cover(src="img/services/spa.jpg", alt="")
-          span.services__heading Spa Treatments 
-          p Phasellus vel neque iaculis, interdum arcu vitae, sollicitudin nisi. Nulla id interdum elit, sit amet ultricies sem.        
-          .button.button--white.services__btn
-            span Learn More
+        .services__item
+          img.services__img(src="img/services/makeup.svg", alt="")
+          .services__item-wrap
+            span.services__heading Makeup 
+            ul.services__sublist
+              li Special Occasion Makeup
+              li Professional Headshot Makeup
+              li Special Effects Makeup
+              li Bridal Makeup
+            a.button.button--small.services__btn(href="")
+              span Learn More
+        .services__item
+          img.services__img(src="img/services/hair.svg", alt="")
+          .services__item-wrap
+            span.services__heading Hair Services 
+            ul.services__sublist
+              li Haircuts
+              li Styling
+              li Coloring
+              li Hair Extensions
+            a.button.button--small.services__btn(href="")
+              span Learn More
+        .services__item
+          img.services__img(src="img/services/nail.svg", alt="")
+          .services__item-wrap
+            span.services__heading Nail Care
+            ul.services__sublist
+              li Manicures
+              li Pedicures
+              li Nail Art
+              li Nail Enhancements
+            a.button.button--small.services__btn(href="")
+              span Learn More
+        .services__item
+          img.services__img(src="img/services/spa.svg", alt="")
+          .services__item-wrap
+            span.services__heading Spa Treatments 
+            ul.services__sublist
+              li Massage
+              li Body Treatments
+              li Facials
+              li Aromatherapy
+            a.button.button--small.services__btn(href="")
+              span Learn More
 
   section.section.testimonials#testimonials
-    .testimonials__content.section__content
+    .testimonials__content
       .testimonials__text 
         h2.heading Testimonials 
         p What our clients say about us
-      .testimonials__container 
-        .testimonials__item 
-          .testimonials__img
-            img.cover(src="img/testimonials/person-1.jpg", alt="")
-          p.testimonials__quote Phasellus vel neque iaculis, interdum arcu vitae, sollicitudin nisi. Nulla id interdum elit, sit amet ultricies sem.
-          span.testimonials__name Annie Smith
-          span.testimonials__work Beauty Queen
-        .testimonials__item 
-          .testimonials__img
-            img.cover(src="img/testimonials/person-2.jpg", alt="")
-          p.testimonials__quote Donec mauris velit, tincidunt vitae nisl in, ultrices consequat diam. In facilisis leo ac eros dapibus, eget euismod odio consectetur.
-          span.testimonials__name Katherine Wilson
-          span.testimonials__work Influencer
-        .testimonials__item 
-          .testimonials__img
-            img.cover(src="img/testimonials/person-3.jpg", alt="")
-          p.testimonials__quote Mauris ut suscipit urna. Etiam ex lacus, aliquet semper varius in, tristique sed turpis. Nullam vitae ligula sit amet quam facilisis commodo.
-          span.testimonials__name Sasha Anderson
-          span.testimonials__work Actress
+      .splide.testimonial__slider
+        .splide__track
+          ul.splide__list
+            li.splide__slide
+              +testimonialItem("person-1.jpg", "Phasellus vel neque iaculis, interdum arcu vitae, sollicitudin nisi. Nulla id interdum elit, sit amet ultricies sem.", " Annie Smith", "Beauty Queen")
+            li.splide__slide
+              +testimonialItem("person-2.jpg", "Donec mauris velit, tincidunt vitae nisl in, ultrices consequat diam. In facilisis leo ac eros dapibus, eget euismod odio consectetur.", "Katherine Wilson", "Influencer")
+            li.splide__slide
+              +testimonialItem("person-3.jpg", "Mauris ut suscipit urna. Etiam ex lacus, aliquet semper varius in, tristique sed turpis. Nullam vitae ligula sit amet quam facilisis commodo.", "Sasha Anderson", "Actress")
+            li.splide__slide
+              +testimonialItem("person-2.jpg", "Donec mauris velit, tincidunt vitae nisl in, ultrices consequat diam. In facilisis leo ac eros dapibus, eget euismod odio consectetur.", "Katherine Wilson", "Influencer")
+            li.splide__slide  
+              +testimonialItem("person-3.jpg", "Mauris ut suscipit urna. Etiam ex lacus, aliquet semper varius in, tristique sed turpis. Nullam vitae ligula sit amet quam facilisis commodo.", "Sasha Anderson", "Actress")
 
-  section.section.branches#branches
-    .branches__content.section__content
-      h2.heading Visit our branches
-      .branches__table-container
-        table.branches__table
-          tr 
-            th Branches 
-            th Services 
-            th Available Tables
-          tr 
-            td Mall of Asia 
-            td Makeup, Hair Services, Nailcare, Spa Treatments
-            td 9
-          tr 
-            td Bonifacio Global City
-            td Hair Services, Nailcare, Spa Treatments 
-            td 10
-          tr 
-            td Makati City
-            td Makeup, Hair Services, Nailcare
-            td 5
-          tr 
-            td Cebu City 
-            td Makeup, Hair Services
-            td 5
+  //- section.section.branches#branches
+  //-   .branches__content.section__content
+  //-     h2.heading Visit our branches
+  //-     .branches__container
+  //-       a.branches__item(href="")
+  //-         .branches__img
+  //-           img(src="img/branches/moa.jpg", alt="")
+  //-         h3.branches__loc Mall of Asia
+  //-         ul.branches__services
+  //-           li Makeup
+  //-           li Hair Services
+  //-           li Nailcare
+  //-           li Spa Treatments 
+  //-         .branches__btn.button 9 available tables
+  //-       a.branches__item(href="")
+  //-         .branches__img
+  //-           img(src="img/branches/bgc.jpg", alt="")
+  //-         h3.branches__loc BGC, Taguig City
+  //-         ul.branches__services
+  //-           li Makeup
+  //-           li Hair Services
+  //-           li Nailcare
+  //-           li Spa Treatments 
+  //-         .branches__btn.button 3 available tables
+  //-       a.branches__item(href="")
+  //-         .branches__img
+  //-           img(src="img/branches/glo.jpg", alt="")
+  //-         h3.branches__loc Glorietta Malls Makati
+  //-         ul.branches__services
+  //-           li Makeup
+  //-           li Hair Services
+  //-           li Nailcare
+  //-           li Spa Treatments 
+  //-         .branches__btn.button 5 available tables
+  //-       a.branches__item(href="")
+  //-         .branches__img
+  //-           img(src="img/branches/cebu.jpg", alt="")
+  //-         h3.branches__loc Cebu City
+  //-         ul.branches__services
+  //-           li Makeup
+  //-           li Hair Services
+  //-           li Nailcare
+  //-           li Spa Treatments 
+  //-         .branches__btn.button 7 available tables
 
   section.section.contact#contact
     .contact__content.section__content
@@ -125,7 +157,7 @@ block content
             span.contact__info Mall of Asia 
           .contact__info-wrap
             span.contact__info-title Phone:
-            span.contact__info +639234720238
+            span.contact__info +639234567890
           .contact__info-wrap
             span.contact__info-title Email:
             span.contact__info serenitysalon@gmail.com

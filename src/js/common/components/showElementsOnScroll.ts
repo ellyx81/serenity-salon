@@ -4,17 +4,17 @@
 const showElements = () => {
   
   const header = document.querySelector(".header");
-  //const btn = document.querySelector(".js-to-top");
+  const btn = document.querySelector(".js-to-top");
   
   window.addEventListener("scroll", () => {
-    if (header) {
+    if (header && btn) {
       if (window.scrollY > 400) {
         header.classList.add("show");
-      //  btn.classList.add("show");
+        btn.classList.add("show");
       }
       else {
         header.classList.remove("show");
-      //  btn.classList.remove("show");
+        btn.classList.remove("show");
       }
     }
   });
