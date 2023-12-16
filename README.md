@@ -11,7 +11,7 @@ or
 ```yarn dev```
 
 ## Link:
-https://ellyx81.github.io/serenity-salon/
+https://ellyx81.github.io/projects/serenity-salon/
 
 
 # Screenshot
