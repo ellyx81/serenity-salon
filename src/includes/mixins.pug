@@ -1,0 +1,13 @@
+mixin picture(path, type, alt) 
+  picture
+    source(srcset="/img/" + path + ".webp", type="image/webp")
+    source(srcset="/img/" + path + "." + type, type=`image/${(type=="jpeg") ? "jpg" : type}`)
+    img(src="/img/" + path + "." + type, alt=alt)&attributes(attributes)
+
+mixin testimonialItem(img, quote, name, job)
+  .testimonials__item 
+    .testimonials__img
+      img.cover(src="img/testimonials/" + img, alt="")
+    p.testimonials__quote= quote
+    span.testimonials__name= name
+    span.testimonials__work= job

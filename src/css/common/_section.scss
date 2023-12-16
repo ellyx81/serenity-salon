@@ -4,6 +4,7 @@
 
 .section {
   padding: 7em 0;
+  overflow-x: clip;
   @include mixin.center;
   @include mixin.setrem($pc: 1.6rem, $tablet: 1.4rem, $sp: 1.2rem);
   @include mq.mx1024 {

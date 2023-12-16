@@ -6,7 +6,7 @@
 
 .footer {
   padding: 5em 0;
-  background-color: color.$light-gray;
+  //background-color: color.$light-gray;
   @include mq.mx1024 {
     padding: 3em 0;
   }
@@ -54,6 +54,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 1em 2.5em;
+      margin-top: 1em;
     }
 
     a {
@@ -72,8 +73,51 @@
     font-size: .8em;
   }
 
+  &__to-top-btn {
+    position: fixed;
+    transform: translateY(110%);
+    bottom: 0;
+    right: 1.8em;
+    width: 4.2em;
+    height: 4.2em;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 1s cubic-bezier(.075,.82,.165,1);
+    z-index: 500;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url("../img/icons/arrow-to-top.svg") no-repeat center/50% 50%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: color.$primary;
+      opacity: .8;
+      z-index: -1;
+    }
+
+    &.show {
+      transform: translateY(-1.8em);
+
+      &:hover {
+        transform: translateY(-2.6em);
+      }
+    }
+  }
+
   .contact__socials {
     font-size: .8em;
     gap: 1.2em;
+    @include mq.sp {
+      justify-content: flex-start;
+      margin-top: 2em;
+    }
   }
 }

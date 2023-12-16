@@ -5,7 +5,7 @@
 declare var Splide: any
 
 const slider = () => {
-	const img = document.querySelector(".js-slider");
+	const img = document.querySelector(".banner__slider");
 	
 	var imgSplide = new Splide( img, {
 		type: 'loop',
